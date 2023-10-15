@@ -46,13 +46,19 @@ export class HomePage {
         attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       });
   
+      const basemap3 = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      maxZoom: 20,
+      attribution: '&copy; <a href="https://opentopomap.org/about.html">OpenTopoMap</a> contributors'
+    });
+
+		basemap3.addTo(this.map);
       basemap1.addTo(this.map);
   
       /* Control Layer */
       var baseMaps = {
         "OpenStreetMap": basemap1,
         "CyclOSM": basemap2,
-        
+        "OpenTopoMap": basemap3,
       };
     
       L.control.layers(baseMaps, ).addTo(this.map);
